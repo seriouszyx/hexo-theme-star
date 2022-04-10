@@ -1,0 +1,59 @@
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+
+  <div class="home-title">
+    <p class="home-heading">
+      {% if theme.name %}
+        {{ theme.name }}
+      {% else %}
+        {{ config.title }}
+      {% endif %}
+    </p>
+    <div class="flex items-center">
+      <div class="home-sub-heading mt-0">
+        <a style="color:inherit" href="{{ site.url }}/about.html">
+          欢迎你啊
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  {% if page.posts.length > 0 %}
+    <ul class="post-list mt-0">
+      {% for postItem in page.posts.toArray() %}
+        {% set this_year = postItem.date.format("Y") %}
+        {% if postItem.next %}
+          {% set next_year = postItem.next.date.format("Y") %}
+        {% endif %}
+
+        {% if loop.first %}
+          <h2 id="{{ this_year }}-ref" class="post-year">{{this_year}}</h2>
+          <ul>
+        {% endif %}
+        
+          <li>
+            <span class="post-meta"> {{ postItem.date.format("MMM DD") }} </span>
+            <a
+              class="black-link post-link-layout"
+              href="{{ url_for(postItem.path) }}"
+            >
+              {{ postItem.title }}
+            </a>
+          </li>
+
+        {% if loop.last %}
+          </ul>
+        {% elif this_year != next_year %}
+          </ul>
+          <h2 id="{{ next_year }}-ref" class="post-year">{{next_year}}</h2>
+          <ul>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {# <div id="paginator">
+    {{ paginator() }}
+  </div> #}
+{% endblock %}

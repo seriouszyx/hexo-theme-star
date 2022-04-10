@@ -1,0 +1,20 @@
+{
+  "name": "hexo-theme-star",
+  "version": "0.0.1",
+  "description": "A clean and minimalist theme for Hexo",
+  "homepage": "https://seriouszyx.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seriouszyx/hexo-theme-star.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "star"
+  ],
+  "author": "seriouszyx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seriouszyx/hexo-theme-star/issues"
+  }
+}

@@ -1,0 +1,94 @@
+{% set pageTitle = page.title or config.subtitle or '' %}
+
+{% if is_archive() %}
+  {% set pageTitle = 'Archives' %}
+{% endif %}
+
+{% if is_tag() %}
+  {% set pageTitle = 'Tag: ' + page.tag %}
+{% endif %}
+
+{% if is_category() %}
+  {% set pageTitle = 'Category: ' + page.category %}
+{% endif %}
+
+{% if is_month() %}
+  {% set pageTitle = pageTitle + ': ' + page.month + '/' + page.year %}
+{% endif %}
+
+{% if is_year() %}
+  {% set pageTitle = pageTitle + ': ' + page.year %}
+{% endif %}
+
+{% set pageTitle = pageTitle + ' [ ' + config.title + ' ]' %}
+
+<!doctype html>
+<html lang="{{ config.language }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ pageTitle }}</title>
+  {% if (theme.stylesheets != undefined) and (theme.stylesheets.length > 0) %}
+    {# stylesheet list from _config.yml #}
+    {% for url in theme.stylesheets %}
+      <link rel="stylesheet" href="{{ url }}">
+    {% endfor %}
+  {% endif %}
+  {# utils #}
+  <link href="https://unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
+  {# prism #}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css">
+</head>
+<body>
+
+<main class="page-content" aria-label="Content">
+  {# <div id="site-header">
+    <div id="site-nav">
+      {% for key,value in theme.menu %}
+        <a href="{{ theme.menu[key] }}">{{ key }}</a>
+      {% endfor %}
+    </div>
+  </div> #}
+
+  <div class="wrapper">
+    {# {% autoescape false %}{{ body }}{% endautoescape %} #}
+    {% block body %}{% endblock %}
+  </div>
+
+</main>
+
+<footer class="site-footer h-card">
+  {# <data class="u-url" href="{{ "/" | relative_url }}"></data> #}
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if config.author -%}
+              <a class="black-link" href="{{ config.root }}">
+                {{ config.author | escape }} 
+              </a>
+            {%- endif -%}
+            </li>
+            {%- if config.email -%}
+            <li>
+            <a class="u-email black-link" href="mailto:{{ config.email }}">{{ config.email }}</a></li>
+            {%- endif -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <a class="text-gray-300 text-sm" href="https://beian.miit.gov.cn">京ICP备2021035401号</a>
+  </div>
+</footer>
+
+
+{% if (theme.scripts != undefined) and (theme.scripts.length > 0) %}
+  {# scripts list from config.yml #}
+  {% for url in theme.scripts %}
+    <script src="{{ url }}"></script>
+  {% endfor %}
+{% endif %}
+
+</body>
+</html>

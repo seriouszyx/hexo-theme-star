@@ -1,0 +1,60 @@
+{% extends 'includes/layout.njk' %}
+
+{% block body %}
+  <article 
+    class="post h-entry"
+    id="post"
+    itemscope
+    itemtype="http://schema.org/BlogPosting"
+  >
+    <head>
+      <title>{{ page.title }}</title>
+    </head>
+
+  <header class="post-header">
+    <div class="post-back">
+      <a class="black-link" href="{{ config.root }}">
+        ← Home
+      </a>
+    </div>
+
+    <h1 class="post-title p-name" itemprop="name headline">
+      {{ page.title | escape }}
+    </h1>
+    <p class="post-meta">
+      <time
+        class="dt-published"
+        datetime="{{ page.date }}"
+        itemprop="datePublished"
+      >
+        {{ page.date.format("MMM DD, YYYY") }}
+      </time>
+      {%- if config.author -%} •
+      <span itemprop="author" itemscope itemtype="http://schema.org/Person"
+        ><span class="p-author h-card" itemprop="name"
+          >{{ config.author | escape }}</span
+        ></span
+      >
+      {%- endif -%}
+      {# <span class="busuanzi_container_page">
+        <span id="busuanzi_container_page_pv">
+          •
+          <span id="busuanzi_value_page_pv"></span> View
+        </span>
+      </span> #}
+    </p>
+    {%- if page.last_modified_at -%}
+    <div class="ant-alert">
+      上次更新时间：{{ page.last_modified_at }}
+    </div>
+    {%- endif %}
+  </header>
+
+    <h1>{{ page.title }}</h1>
+    {{ page.content }}
+  </article>
+
+  <div id="paginator">
+    {{ paginator() }}
+  </div>
+{% endblock %}
