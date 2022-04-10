@@ -27,7 +27,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ pageTitle }}</title>
-  <link rel="stylesheet" href="/css/star.css">
+  <link rel="stylesheet" href="{{ url_for("css") }}/star.css">
   {# utils #}
   <link href="https://unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
   {# prism #}
@@ -78,7 +78,7 @@
 </footer>
 
 
-<script src="/js/star.js"></script>
+<script src="{{ url_for("js") }}/star.js"></script>
 
 </body>
 </html>
