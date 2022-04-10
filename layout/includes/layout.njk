@@ -27,12 +27,7 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ pageTitle }}</title>
-  {% if (theme.stylesheets != undefined) and (theme.stylesheets.length > 0) %}
-    {# stylesheet list from _config.yml #}
-    {% for url in theme.stylesheets %}
-      <link rel="stylesheet" href="{{ url }}">
-    {% endfor %}
-  {% endif %}
+  <link rel="stylesheet" href="/css/star.css">
   {# utils #}
   <link href="https://unpkg.com/tailwindcss@^2/dist/utilities.min.css" rel="stylesheet" />
   {# prism #}
@@ -83,12 +78,7 @@
 </footer>
 
 
-{% if (theme.scripts != undefined) and (theme.scripts.length > 0) %}
-  {# scripts list from config.yml #}
-  {% for url in theme.scripts %}
-    <script src="{{ url }}"></script>
-  {% endfor %}
-{% endif %}
+<script src="/js/star.js"></script>
 
 </body>
 </html>

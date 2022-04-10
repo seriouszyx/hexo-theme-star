@@ -8,11 +8,3 @@ menu:
   About: /about
   Contact: /contact
   Archives: /archives
-
-# stylesheets loaded in the <head>
-stylesheets:
-- /css/star.css
-
-# scripts loaded in the end of the body
-scripts:
-- /js/star.js
