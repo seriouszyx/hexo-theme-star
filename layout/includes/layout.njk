@@ -75,9 +75,11 @@
       </div>
     </div>
   </div>
-  <div class="text-center">
-    <a class="text-gray-300 text-sm" href="https://beian.miit.gov.cn">京ICP备2021035401号</a>
-  </div>
+  {% if theme.beian %}
+    <div class="text-center">
+      <a class="text-gray-300 text-sm" href="https://beian.miit.gov.cn">{{ theme.beian }}</a>
+    </div>
+  {% endif %}
 </footer>
 
 {# jQuery #}
