@@ -14,3 +14,14 @@ beian:
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/
 fancybox: false
+
+# Show Views / Visitors of the website / page with busuanzi.
+# For more information: http://ibruce.info/2015/04/04/busuanzi/
+busuanzi:
+  enable: false
+  site_uv:
+    enable: true
+  site_pv:
+    enable: true
+  post_pv:
+    enable: true

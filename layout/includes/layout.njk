@@ -75,6 +75,23 @@
       </div>
     </div>
   </div>
+  {% if theme.busuanzi.enable %}
+    <div class="text-center">
+      {% if theme.busuanzi.site_pv.enable %}
+        <span class="text-gray-300 text-sm" id="busuanzi_container_site_pv">
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+      {% endif %}
+      {% if theme.busuanzi.site_pv.enable and theme.busuanzi.site_uv.enable %}
+        <span class="text-gray-300 text-sm">•</span>
+      {% endif %}
+      {% if theme.busuanzi.site_uv.enable %}
+          <span class="text-gray-300 text-sm" id="busuanzi_container_site_uv">
+            本站访客数<span id="busuanzi_value_site_uv"></span>人次
+          </span>
+      {% endif %}
+    </div>
+  {% endif %}
   {% if theme.beian %}
     <div class="text-center">
       <a class="text-gray-300 text-sm" href="https://beian.miit.gov.cn">{{ theme.beian }}</a>
@@ -86,6 +103,10 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 {% if theme.fancybox %}
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endif %}
+{% if theme.busuanzi.enable %}
+  <script async src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js">
+</script>
 {% endif %}
 <script>
   var Star = window.Star || {};

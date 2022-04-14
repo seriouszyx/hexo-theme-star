@@ -33,12 +33,14 @@
         ></span
       >
       {%- endif -%}
-      {# <span class="busuanzi_container_page">
-        <span id="busuanzi_container_page_pv">
-          •
+      {% if theme.busuanzi.enable and theme.busuanzi.post_pv.enable %}
+        <span class="busuanzi_container_page">
+          <span id="busuanzi_container_page_pv">
+            •
           <span id="busuanzi_value_page_pv"></span> View
+          </span>
         </span>
-      </span> #}
+      {% endif %}
     </p>
     {%- if page.last_modified_at -%}
     <div class="ant-alert">
