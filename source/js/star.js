@@ -3,6 +3,10 @@ $(document).ready(function () {
         if (CONFIG.fancybox) {
             this.wrapImageWithFancyBox()
         }
+ 
+        if (CONFIG.tocbot) {
+            this.initTocbot()
+        }
     }
 
     // Initializaiton

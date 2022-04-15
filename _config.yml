@@ -13,12 +13,16 @@ beian:
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/
-fancybox: false
+fancybox: true
+
+# tocbot is a tool that builds a table of contents from headings in an HTML document.
+# For more information: https://github.com/tscanlin/tocbot
+tocbot: true
 
 # Show Views / Visitors of the website / page with busuanzi.
 # For more information: http://ibruce.info/2015/04/04/busuanzi/
 busuanzi:
-  enable: false
+  enable: true
   site_uv:
     enable: true
   site_pv:

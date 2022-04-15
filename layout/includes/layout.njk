@@ -27,13 +27,13 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ pageTitle }}</title>
-  {# utils #}
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
   {# prism #}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css">
   {% if theme.fancybox %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   {% endif %}
+
+  <link rel="stylesheet" href="{{ url_for("css") }}/third_party/utilities.min.css">
   <link rel="stylesheet" href="{{ url_for("css") }}/star.css">
 </head>
 <body>
@@ -108,10 +108,14 @@
   <script async src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js">
 </script>
 {% endif %}
+{% if theme.tocbot %}
+  <script src="https://cdn.jsdelivr.net/npm/tocbot@4.18.2/dist/tocbot.min.js"></script>
+{% endif %}
 <script>
   var Star = window.Star || {};
   var CONFIG = {
-    fancybox: {{ theme.fancybox }}
+    fancybox: {{ theme.fancybox }},
+    tocbot: {{ theme.tocbot }}
   };
   window.CONFIG = CONFIG;
 </script>

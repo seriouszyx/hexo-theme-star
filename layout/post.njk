@@ -49,8 +49,11 @@
     {%- endif %}
   </header>
 
-    <h1>{{ page.title }}</h1>
+  <div class="js-toc"></div>
+
+  <div class="post-content" itemprop="articleBody">
     {{ page.content }}
+  </div>
   </article>
 
   <div id="paginator">
