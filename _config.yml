@@ -29,3 +29,13 @@ busuanzi:
     enable: true
   post_pv:
     enable: true
+
+# Gitalk
+# For more information: https://gitalk.github.io
+gitalk:
+  enable: 
+  owner: 
+  repo: 
+  client_id: 
+  client_secret: 
+  admin: 

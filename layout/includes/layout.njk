@@ -29,8 +29,13 @@
   <title>{{ pageTitle }}</title>
   {# prism #}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-one-light.min.css">
+  {# fancybox #}
   {% if theme.fancybox %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  {% endif %}
+  {# gitalk #}
+  {% if theme.gitalk.enable %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
   {% endif %}
 
   <link rel="stylesheet" href="{{ url_for("css") }}/third_party/utilities.min.css">
@@ -110,6 +115,26 @@
 {% endif %}
 {% if theme.tocbot %}
   <script src="https://cdn.jsdelivr.net/npm/tocbot@4.18.2/dist/tocbot.min.js"></script>
+{% endif %}
+{% if is_post() and theme.gitalk.enable %}
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-md5@latest/src/md5.min.js"></script>
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '{{ theme.gitalk.client_id }}',
+      clientSecret: '{{ theme.gitalk.client_secret }}',
+      repo: '{{ theme.gitalk.repo }}',
+      owner: '{{ theme.gitalk.owner }}',
+      admin: ['{{ theme.gitalk.admin }}'],
+      id: md5(window.location.pathname),
+      distractionFreeMode: false,
+      createIssueManually: true,
+      pagerDirection: 'first',
+      perPage: 25,
+    })
+
+    gitalk.render('gitalk-container')
+  </script>
 {% endif %}
 <script>
   var Star = window.Star || {};
