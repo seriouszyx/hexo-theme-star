@@ -33,7 +33,7 @@ busuanzi:
 # Gitalk
 # For more information: https://gitalk.github.io
 gitalk:
-  enable: 
+  enable: false
   owner: 
   repo: 
   client_id: 
