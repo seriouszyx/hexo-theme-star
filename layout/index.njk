@@ -13,7 +13,7 @@
     <div class="flex items-center">
       <div class="home-sub-heading mt-0">
         <a style="color:inherit" href="{{ site.url }}/about.html">
-          欢迎你啊
+          关于
         </a>
       </div>
     </div>
@@ -33,13 +33,15 @@
         {% endif %}
         
           <li>
-            <span class="post-meta"> {{ postItem.date.format("MMM DD") }} </span>
-            <a
-              class="black-link post-link-layout"
-              href="{{ url_for(postItem.path) }}"
-            >
-              {{ postItem.title }}
-            </a>
+            <div class="post-item">
+              <span class="post-meta"> {{ postItem.date.format("MMM DD") }} </span>
+              <a
+                class="black-link post-link-layout"
+                href="{{ url_for(postItem.path) }}"
+              >
+                {{ postItem.title }}
+              </a>
+            </div>
           </li>
 
         {% if loop.last %}

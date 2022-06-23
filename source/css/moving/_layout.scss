@@ -178,6 +178,10 @@
     }
   }
   
+  .post-item {
+    display: flex;
+  }
+
   .post-year {
     margin-top: 2rem;
     margin-bottom: 0.25rem;
@@ -194,6 +198,7 @@
   .post-meta {
     display: inline-block;
     min-width: 60px;
+    margin-top: 3px;
   
     @media (max-width: 500px) {
       @include relative-font-size(0.8);
