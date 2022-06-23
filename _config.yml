@@ -39,3 +39,10 @@ gitalk:
   client_id: 
   client_secret: 
   admin: 
+
+favicon:
+  small: /images/favicon-16x16-star.png
+  # medium: /images/favicon-32x32-star.png
+  # apple_touch_icon: /images/apple-touch-icon-star.png
+  # safari_pinned_tab: /images/logo.svg
+  #android_manifest: /manifest.json
