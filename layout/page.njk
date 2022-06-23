@@ -1,12 +1,162 @@
 {% extends 'includes/layout.njk' %}
 
 {% block body %}
-  <article id="page">
-    <h1>{{ page.title }}</h1>
-    {{ page.content }}
-  </article>
-
-  <div id="paginator">
-    {{ paginator() }}
+<div class="about-page">
+  <head>
+    <title>{{ page.title }}</title>
+  </head>
+  <div class="post-back">
+    <a class="black-link" href="{{ config.root }}">
+      ← Home
+    </a>
   </div>
+  <div class="about-header">
+    {% if theme.avatar.url %}
+    <img class="about-avatar" src="{{ theme.avatar.url }}" />
+    {% endif %} 
+    {% if config.author %}
+    <div class="about-info">
+      <div class="about-your-name">
+        {{ config.author | escape }}
+      </div>
+      {% endif %} 
+      {% if config.description %}
+      <p class="about-description">
+        {{ config.description | escape }}
+      </p>
+    {% endif %} 
+    {# social #}
+    <ul class="social-media-list">
+    {%- if theme.social.dribbble -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://dribbble.com/{{ theme.social.dribbble }}"
+        >[Dribbble]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.facebook -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.facebook.com/{{
+          theme.social.facebook
+        }}"
+        >[Facebook]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.flickr -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.flickr.com/photos/{{
+          theme.social.flickr
+        }}"
+        >[Flickr]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.github -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://github.com/{{ theme.social.github }}"
+      > [Github]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.instagram -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.instagram.com/{{
+          theme.social.instagram
+        }}"
+        >[Instagram]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.linkedin -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.linkedin.com/in/{{
+          theme.social.linkedin
+        }}"
+        >[Linkedin]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.pinterest -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.pinterest.com/{{
+          theme.social.pinterest
+        }}"
+        >[Pinterest]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.twitter -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://twitter.com/{{ theme.social.twitter }}"
+      > [Twitter]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.youtube -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.youtube.com/{{ theme.social.youtube }}"
+        >[YouTube]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.youtube_channel -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://www.youtube.com/channel/{{
+          theme.social.youtube_channel
+        }}"
+        >[YouTube Channel]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.telegram -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://t.me/{{ theme.social.telegram }}"
+      >
+        [Telegram]
+      </a>
+    </li>
+    {%- endif -%} {%- if theme.social.microdotblog -%}
+    <li>
+      <a
+        class="black-link"
+        rel="me"
+        href="https://micro.blog/{{ theme.social.microdotblog }}"
+        >[Microdotblog]</a
+      >
+    </li>
+    {%- endif -%} {%- if theme.social.reddit -%}
+    <li>
+      <a
+        class="black-link"
+        href="https://reddit.com/user/{{ theme.social.reddit }}"
+      >
+        [Reddit]
+      </a>
+    </li>
+    {%- endif -%} {%- if theme.social.rss -%}
+    <li>
+      <a class="black-link" href="{{ 'feed.xml' }}">[RSS]</a>
+    </li>
+    {%- endif -%}
+  </ul>
+    </div>
+  </div>
+
+  <div class="about-content e-content" itemprop="articleBody">
+    {{ page.content }}
+  </div>
+</div>
 {% endblock %}

@@ -11,6 +11,10 @@ menu:
 
 beian: 
 
+avatar:
+  # Replace the default image and set the url here.
+  url: /images/favicon-16x16-star.png
+
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/
 fancybox: true
@@ -46,3 +50,6 @@ favicon:
   # apple_touch_icon: /images/apple-touch-icon-star.png
   # safari_pinned_tab: /images/logo.svg
   #android_manifest: /manifest.json
+
+social:
+  github: seriouszyx
